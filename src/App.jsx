@@ -4,7 +4,7 @@ import PatternSelector from "./PatternSelector";
 
 const App = () => {
 
-  const [selectedPattern, setSelectedPattern] = useState([]);
+  const [selectedPattern, setSelectedPattern] = useState('');
 
   const handlePatternSelect = (patternToHandle) => {
     setSelectedPattern(patternToHandle);
