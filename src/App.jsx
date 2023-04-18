@@ -6,17 +6,19 @@ const App = () => {
 
   const [selectedPattern, setSelectedPattern] = useState('');
 
-  const handlePatternSelect = (pattern) => {
-    setSelectedPattern(pattern);
+  const handlePatternSelect = (patternToHandle) => {
+    setSelectedPattern(patternToHandle);
   };
 
+  const tablo = () => {
+    return selectedPattern.map(el => <Bulbs pattern={el}  />)
+  }
+
+  console.log(selectedPattern)
   return (
     <>
       <div className='screen-container'>
-        {selectedPattern ? <Bulbs pattern={selectedPattern} /> : null}
-        {selectedPattern ? <Bulbs pattern={selectedPattern} /> : null}
-        {selectedPattern ? <Bulbs pattern={selectedPattern} /> : null}
-        {selectedPattern ? <Bulbs pattern={selectedPattern} /> : null}
+        {selectedPattern ? selectedPattern.map(el => <Bulbs pattern={el} />) : null}
       </div>
         <PatternSelector onPatternSelect={handlePatternSelect} />
     </>

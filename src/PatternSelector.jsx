@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-
 const patterns = {
     '':[0,0,0,0,
         0,0,0,0,
@@ -33,24 +31,23 @@ const patterns = {
         0,1,1,0],
 };
 
-const PatternSelector = ({ onPatternSelect = 'S'}) => {
-  const [selectedPattern, setSelectedPattern] = useState(patterns[0]);
-
+const PatternSelector = ({ onPatternSelect }) => {
   const handleInputChange = (event) => {
-    const input = event.target.value.toUpperCase();
-    if (input in patterns) {
-      setSelectedPattern(input);
-      onPatternSelect(patterns[input]);
-    } else {
-      setSelectedPattern(patterns[0]);
-      onPatternSelect(patterns[0]);
+    const input = event.target.value.toUpperCase().split('');
+    let allPatterns = []
+    for (let i = 0; i < input.length; i++){
+      if (input[i] in patterns) {
+        allPatterns.push(patterns[input[i]]);
+      } else {
+        allPatterns.push(patterns['']);
+      }
     }
-    return input
+    onPatternSelect(allPatterns)
   };
 
   return (
     <div className="input">
-      <input value={handleInputChange} type="text" id="pattern-input" onChange={handleInputChange} />
+      <input type="text" id="pattern-input" onChange={handleInputChange} />
     </div>
   );
 };
