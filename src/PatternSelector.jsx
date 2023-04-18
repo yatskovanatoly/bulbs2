@@ -32,16 +32,17 @@ const patterns = {
 };
 
 const PatternSelector = ({ onPatternSelect }) => {
-
   const handleInputChange = (event) => {
     const input = event.target.value.toUpperCase().split('');
-    let string = [];
-    if (input in patterns) {
-      onPatternSelect(string.push(patterns[input]));
-    } else {
-      onPatternSelect(patterns['']);
+    let allPatterns = []
+    for (let i = 0; i < input.length; i++){
+      if (input[i] in patterns) {
+        allPatterns.push(patterns[input[i]]);
+      } else {
+        allPatterns.push(patterns['']);
+      }
     }
-    console.log(string)
+    onPatternSelect(allPatterns)
   };
 
   return (
