@@ -27,14 +27,14 @@ const patterns = {
         1,0,0,1],
     Y: [1,0,0,1,
         1,0,0,1,
-        0,1,0,1,
-        0,0,1,0,
-        0,1,0,0,
-        1,0,0,0],
+        1,0,0,1,
+        0,1,1,0,
+        0,1,1,0,
+        0,1,1,0],
 };
 
-const PatternSelector = ({ onPatternSelect }) => {
-  const [selectedPattern, setSelectedPattern] = useState(null);
+const PatternSelector = ({ onPatternSelect = 'S'}) => {
+  const [selectedPattern, setSelectedPattern] = useState(patterns[0]);
 
   const handleInputChange = (event) => {
     const input = event.target.value.toUpperCase();
@@ -45,12 +45,12 @@ const PatternSelector = ({ onPatternSelect }) => {
       setSelectedPattern(patterns[0]);
       onPatternSelect(patterns[0]);
     }
+    return input
   };
 
   return (
-    <div>
-      <label htmlFor="pattern-input">Enter a letter to select a pattern:</label>
-      <input type="text" id="pattern-input" onChange={handleInputChange} />
+    <div className="input">
+      <input value={handleInputChange} type="text" id="pattern-input" onChange={handleInputChange} />
     </div>
   );
 };
