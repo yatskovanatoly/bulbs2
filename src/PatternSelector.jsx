@@ -1,4 +1,4 @@
-const patterns = {
+export const patterns = {
   '':[0,0,0,0,
       0,0,0,0,
       0,0,0,0,
@@ -29,11 +29,30 @@ const patterns = {
       0,1,1,0,
       0,1,1,0,
       0,1,1,0],
+  W: [1,0,0,0,1,
+      1,0,0,0,1,
+      1,0,0,0,1,
+      1,0,1,0,1,
+      1,1,0,1,1,
+      1,0,0,0,1],
+  N: [1,0,0,1,
+      1,0,0,1,
+      1,1,0,1,
+      1,0,1,1,
+      1,0,0,1,
+      1,0,0,1],
+  I: [1,1,1,1,
+      0,1,1,0,
+      0,1,1,0,
+      0,1,1,0,
+      0,1,1,0,
+      1,1,1,1],
 };
 
-const PatternSelector = ({ onPatternSelect }) => {
+export const PatternSelector = ({ onPatternSelect }) => {
 const handleInputChange = (event) => {
   const input = event.target.value.toUpperCase().split('');
+  while(input.length < 4) input.push('')
   let allPatterns = []
   for (let i = 0; i < input.length; i++){
     if (input[i] in patterns) {
@@ -47,9 +66,7 @@ const handleInputChange = (event) => {
 
 return (
   <div className="input">
-    <input type="text" id="pattern-input" onChange={handleInputChange} />
+    <input type="text" id="pattern-input" maxLength={4} onChange={handleInputChange} />
   </div>
 );
 };
-
-export default PatternSelector;

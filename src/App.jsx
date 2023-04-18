@@ -1,24 +1,21 @@
 import React, { useState } from "react";
 import Bulbs from "./Bulbs";
-import PatternSelector from "./PatternSelector";
+import {PatternSelector, patterns} from "./PatternSelector";
+
 
 const App = () => {
 
-  const [selectedPattern, setSelectedPattern] = useState('');
+  const [selectedPattern, setSelectedPattern] = useState([patterns[''],patterns[''],patterns[''],patterns['']]);
 
   const handlePatternSelect = (patternToHandle) => {
     setSelectedPattern(patternToHandle);
   };
 
-  const tablo = () => {
-    return selectedPattern.map(el => <Bulbs pattern={el}  />)
-  }
-
   console.log(selectedPattern)
   return (
     <>
       <div className='screen-container'>
-        {selectedPattern ? selectedPattern.map(el => <Bulbs pattern={el} />) : null}
+        {selectedPattern.map(el => <Bulbs pattern={el} />)}
       </div>
         <PatternSelector onPatternSelect={handlePatternSelect} />
     </>

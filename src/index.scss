@@ -18,22 +18,25 @@ body {
   align-items: center;
   position: relative;
   flex-direction: row;
+  background-color: black;
+  border-radius: 10px;
+  border: 10px solid transparent;
+  box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.333);
 }
+
 .bulbs-container {
   display: grid;
-  grid-template-columns: repeat(4, 25px);
-  grid-template-rows: repeat(6, 25px);
-  gap: 10px;
-  max-width: fit-content;
-  max-height: fit-content;
-  background-color: black;
-  border: 10px solid black;
+  grid-template-columns: repeat(5, 20px);
+  grid-template-rows: repeat(6, 20px);
+  margin: 5px;
 
   .bulb {
-    width: 25px;
-    height: 25px;
+    width: 10px;
+    height: 10px;
+    align-self: center;
+    justify-self: center;
     border-radius: 50%;
-    background-color: black;
+    background-color: rgb(35, 50, 35);
     transition: 0.25s ease-in-out;
   }
   
@@ -43,9 +46,9 @@ body {
   }
 }
 
-.input {
+.input { input {width: 35px; scale: 2;}
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 60px;
 }
