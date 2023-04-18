@@ -4,7 +4,7 @@ import PatternSelector from "./PatternSelector";
 
 const App = () => {
 
-  const [selectedPattern, setSelectedPattern] = useState('');
+  const [selectedPattern, setSelectedPattern] = useState([]);
 
   const handlePatternSelect = (pattern) => {
     setSelectedPattern(pattern);
@@ -13,10 +13,7 @@ const App = () => {
   return (
     <>
       <div className='screen-container'>
-        {selectedPattern ? <Bulbs pattern={selectedPattern} /> : null}
-        {selectedPattern ? <Bulbs pattern={selectedPattern} /> : null}
-        {selectedPattern ? <Bulbs pattern={selectedPattern} /> : null}
-        {selectedPattern ? <Bulbs pattern={selectedPattern} /> : null}
+        {selectedPattern ? <Bulbs pattern={selectedPattern} /> : <Bulbs pattern={[]} />}      
       </div>
         <PatternSelector onPatternSelect={handlePatternSelect} />
     </>
