@@ -1,6 +1,3 @@
-import React from "react";
-import "./index.scss";
-
 const Bulb = ({ isActive }) => {
     return <div className={`bulb ${isActive ? "active" : ""}`}></div>;
   };

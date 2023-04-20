@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Bulbs from "./Bulbs";
 import {PatternSelector, patterns} from "./PatternSelector";
+import Screen from './Screen'
 
 
 const App = () => {
@@ -14,9 +15,11 @@ const App = () => {
   console.log(selectedPattern)
   return (
     <>
-      <div className='screen-container'>
+      {/* <div className='screen-container'>
         {selectedPattern.map(el => <Bulbs pattern={el} />)}
-      </div>
+      </div> */}
+        <Screen activeDiv={patterns}/>
+
         <PatternSelector onPatternSelect={handlePatternSelect} />
     </>
   );
