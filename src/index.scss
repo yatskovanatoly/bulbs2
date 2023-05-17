@@ -42,7 +42,8 @@ body {
   }
   
   .bulb.active {
-    background-color: yellowgreen;
+    background-color: lightgreen;
+    // background-color: yellowgreen;
     box-shadow: 0 0 10px 5px green;
   }
 }
@@ -70,7 +71,7 @@ body {
       background-color: rgb(35, 50, 35);
       margin: 10px 5px 10px 5px;
     } .active {
-      background-color: yellowgreen;
+      background-color: lightgreen;
       box-shadow: 0 0 10px 5px green;}
   }
   

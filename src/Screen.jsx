@@ -1,5 +1,5 @@
 function Matrix({ activeDiv, pattern }) {
-  const matrix = Array.from({ length: 20 }, () => Array.from({ length: 6 })); //creates an array with 20 rows and 6 columns
+  const matrix = Array.from({ length: 20 }, () => Array.from({ length: 6 }));
   
   return (
     <div className="matrix">

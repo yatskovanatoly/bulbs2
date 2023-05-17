@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import Bulbs from "./Bulbs";
 import {PatternSelector, patterns} from "./PatternSelector";
 import Screen from './Screen'
 
 
 const App = () => {
 
-  const [selectedPattern, setSelectedPattern] = useState([patterns[''],patterns[''],patterns[''],patterns['']]);
+  const [selectedPattern, setSelectedPattern] = useState([]);
 
   const handlePatternSelect = (patternToHandle) => {
     setSelectedPattern(patternToHandle);
@@ -15,10 +14,7 @@ const App = () => {
   console.log(selectedPattern)
   return (
     <>
-      {/* <div className='screen-container'>
-        {selectedPattern.map(el => <Bulbs pattern={el} />)}
-      </div> */}
-        <Screen activeDiv={patterns}/>
+        <Screen activeDiv={patterns} />
 
         <PatternSelector onPatternSelect={handlePatternSelect} />
     </>
